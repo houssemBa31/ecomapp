@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import '../../core/widget/product_item.dart';
 import '../../views/home/home_page.dart';
 
@@ -69,15 +70,16 @@ class ProductCard extends StatelessWidget {
                     child: SvgPicture.string(
                       heartIcon,
                       colorFilter: ColorFilter.mode(
-                          product.isFavorite
-                              ? const Color(0xFFFF4848)
-                              : const Color(0xFFDBDEE4),
-                          BlendMode.srcIn),
+                        product.isFavorite
+                            ? const Color(0xFFFF4848)
+                            : const Color(0xFFDBDEE4),
+                        BlendMode.srcIn,
+                      ),
                     ),
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

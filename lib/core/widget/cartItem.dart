@@ -1,6 +1,4 @@
-
 import 'package:ecomapp/core/widget/product_item.dart';
-
 
 class CartItem {
   final Product product;
@@ -11,7 +9,8 @@ class CartItem {
   CartItem({
     required this.product,
     required this.colorIndex,
-    this.quantity = 1, required this.svgString,
+    this.quantity = 1,
+    required this.svgString,
   });
 
   double get total => product.price * quantity;

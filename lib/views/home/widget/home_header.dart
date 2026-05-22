@@ -5,9 +5,7 @@ import '../home_page.dart';
 import 'IconBtnWithCounter.dart';
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({
-    Key? key,
-  }) : super(key: key);
+  const HomeHeader({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +22,7 @@ class HomeHeader extends StatelessWidget {
             press: () {},
           ),
           const SizedBox(width: 8),
-          IconBtnWithCounter(
-            svgSrc: bellIcon,
-            numOfitem: 3,
-            press: () {},
-          ),
+          IconBtnWithCounter(svgSrc: bellIcon, numOfitem: 3, press: () {}),
         ],
       ),
     );

@@ -1,4 +1,3 @@
-import 'package:ecomapp/views/home/home_page.dart';
 import 'package:ecomapp/views/home/widget/title_section.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -18,10 +17,7 @@ class PopularProducts extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: SectionTitle(
-            title: "Popular Products",
-            press: () {},
-          ),
+          child: SectionTitle(title: "Popular Products", press: () {}),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),

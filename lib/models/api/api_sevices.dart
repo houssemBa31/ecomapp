@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
+
 import 'product_model.dart';
 
 part "api_service.g.dart";

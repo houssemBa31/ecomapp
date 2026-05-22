@@ -28,7 +28,9 @@ class AuthController extends GetxController {
       );
 
       if (res.session != null) {
-        Get.offAllNamed('/home'); // Redirige vers la home et efface l'historique
+        Get.offAllNamed(
+          '/home',
+        ); // Redirige vers la home et efface l'historique
       }
     } on AuthException catch (e) {
       Get.snackbar("Erreur", e.message, snackPosition: SnackPosition.BOTTOM);
@@ -61,7 +63,8 @@ class AuthController extends GetxController {
       if (res.user != null) {
         Get.defaultDialog(
           title: "Succès",
-          middleText: "Veuillez confirmer votre email pour activer votre compte.",
+          middleText:
+              "Veuillez confirmer votre email pour activer votre compte.",
           onConfirm: () => Get.offAllNamed('/login'),
           textConfirm: "Aller au Login",
         );
@@ -86,7 +89,10 @@ class AuthController extends GetxController {
       return false;
     }
     if (password.value.length < 6) {
-      Get.snackbar("Sécurité", "Le mot de passe doit faire au moins 6 caractères");
+      Get.snackbar(
+        "Sécurité",
+        "Le mot de passe doit faire au moins 6 caractères",
+      );
       return false;
     }
     if (isSignUp && firstName.value.isEmpty) {

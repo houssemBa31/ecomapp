@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/foundation.dart' show immutable;
 import 'package:flutter/material.dart' show Color, Icon;
 
@@ -9,10 +7,5 @@ class BottomNavBarItem {
   final Icon icon;
   final Color? activeColor;
 
-
-  const BottomNavBarItem(
-      this.title,
-      this.icon, {
-        required this.activeColor,
-      });
+  const BottomNavBarItem(this.title, this.icon, {required this.activeColor});
 }

@@ -1,4 +1,3 @@
-import 'package:ecomapp/views/home/home_page.dart';
 import 'package:ecomapp/views/home/widget/title_section.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -6,7 +5,6 @@ import 'package:get/get_instance/src/extension_instance.dart';
 
 import '../../../core/widget/ptoduct_cart.dart';
 import '../../../view_modele/controller/controler.dart';
-import '../../product/product.dart' hide demoProducts;
 
 class RecentlyAddedProducts extends StatelessWidget {
   final ProductController controller = Get.find<ProductController>();
@@ -19,10 +17,7 @@ class RecentlyAddedProducts extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: SectionTitle(
-            title: "Recently Added",
-            press: () {},
-          ),
+          child: SectionTitle(title: "Recently Added", press: () {}),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),

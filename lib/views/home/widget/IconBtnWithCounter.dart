@@ -55,7 +55,7 @@ class IconBtnWithCounter extends StatelessWidget {
                   ),
                 ),
               ),
-            )
+            ),
         ],
       ),
     );

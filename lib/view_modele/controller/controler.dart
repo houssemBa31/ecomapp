@@ -6,6 +6,7 @@ import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_navigation/src/snackbar/snackbar.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+
 import '../../core/widget/product_category.dart';
 import '../../core/widget/product_item.dart';
 import '../../models/api/api_sevices.dart';

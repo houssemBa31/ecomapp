@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 
 class ApiErrorHandler {
@@ -20,11 +19,16 @@ class ApiErrorHandler {
 
   static String _handleStatusCode(int? statusCode) {
     switch (statusCode) {
-      case 400: return "Requête incorrecte.";
-      case 401: return "Non autorisé (session expirée).";
-      case 404: return "Ressource non trouvée.";
-      case 500: return "Erreur serveur. Réessayez plus tard.";
-      default: return "Erreur serveur ($statusCode).";
+      case 400:
+        return "Requête incorrecte.";
+      case 401:
+        return "Non autorisé (session expirée).";
+      case 404:
+        return "Ressource non trouvée.";
+      case 500:
+        return "Erreur serveur. Réessayez plus tard.";
+      default:
+        return "Erreur serveur ($statusCode).";
     }
   }
 }

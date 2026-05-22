@@ -13,21 +13,19 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'core/widget/Api.dart';
 
-void main() async  {
-
+void main() async {
   Get.put(ProductController());
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Supabase.initialize(
-    url: 'https://your-p',
-    anonKey: 'your-',
-  );
-  runApp( MyApp());
+  await Supabase.initialize(url: 'https://your-p', anonKey: 'your-');
+  runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   final ProductController controller = Get.put(ProductController());
 
-   MyApp({super.key});
+  MyApp({super.key});
+
   final List<Widget> pages = [
     HomeScreen(),
     FavoriteProductsScreen(),
@@ -38,37 +36,35 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Obx(() => pages[controller.currentIndex.value]),
-      bottomNavigationBar:
-      Obx(() =>
-          StylishBottomBar(
-            currentIndex:controller.currentIndex.value,
+        bottomNavigationBar: Obx(
+          () => StylishBottomBar(
+            currentIndex: controller.currentIndex.value,
             onTap: (index) {
               controller.currentIndex.value = index;
-              },
-            items: AppData.bottomNavBarItems.map(
+            },
+            items: AppData.bottomNavBarItems
+                .map(
                   (item) => BottomBarItem(
-                backgroundColor: item!.activeColor,
-                icon: item.icon,
-                title: Text(
-                  item.title,
-                  style: TextStyle(
-                    color: item.activeColor,
+                    backgroundColor: item!.activeColor,
+                    icon: item.icon,
+                    title: Text(
+                      item.title,
+                      style: TextStyle(color: item.activeColor),
+                    ),
                   ),
-                ),
-              ),
-            )
+                )
                 .toList(),
             option: BubbleBarOptions(
               opacity: 0.3,
               inkColor: Colors.grey,
-              borderRadius: BorderRadius.circular(
-                15.0,
-    ),
-    )),
-    ),
-    ));
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
