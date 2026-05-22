@@ -6,7 +6,6 @@ part "api_service.g.dart";
 
 @RestApi(baseUrl: "https://votre-base-url-supab")
 abstract class ApiService {
-
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
   @GET("/products")
@@ -16,7 +15,9 @@ abstract class ApiService {
   Future<Product> getProductDetails(@Path("id") int id);
 
   @GET("/products")
-  Future<List<Product>> getProductsByCategory(@Query("type") String categoryType);
+  Future<List<Product>> getProductsByCategory(
+    @Query("type") String categoryType,
+  );
 
   // --- CREATE PRODUCT (Optionnel) ---
   @POST("/products")
