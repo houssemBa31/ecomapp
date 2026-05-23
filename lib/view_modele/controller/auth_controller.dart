@@ -4,11 +4,9 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 class AuthController extends GetxController {
   final SupabaseClient supabase = Supabase.instance.client;
 
-  // --- ÉTATS RÉACTIFS (Utilisés par vos Obx dans l'UI) ---
   var isLoading = false.obs;
   var isPasswordHidden = true.obs;
 
-  // Champs de saisie réactifs
   var email = "".obs;
   var password = "".obs;
   var firstName = "".obs;
@@ -16,7 +14,6 @@ class AuthController extends GetxController {
   var phoneNumber = "".obs;
   var address = "".obs;
 
-  // --- FONCTION CONNEXION (Sign In) ---
   Future<void> signIn() async {
     if (!_validateFields()) return;
 
@@ -28,9 +25,7 @@ class AuthController extends GetxController {
       );
 
       if (res.session != null) {
-        Get.offAllNamed(
-          '/home',
-        ); // Redirige vers la home et efface l'historique
+        Get.offAllNamed('/home');
       }
     } on AuthException catch (e) {
       Get.snackbar("Erreur", e.message, snackPosition: SnackPosition.BOTTOM);
@@ -41,7 +36,6 @@ class AuthController extends GetxController {
     }
   }
 
-  // --- FONCTION INSCRIPTION (Sign Up) ---
   Future<void> signUp() async {
     if (!_validateFields(isSignUp: true)) return;
 

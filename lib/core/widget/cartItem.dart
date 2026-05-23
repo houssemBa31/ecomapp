@@ -2,9 +2,9 @@ import 'package:ecomapp/core/widget/product_item.dart';
 
 class CartItem {
   final Product product;
-  final int colorIndex;
+   int colorIndex;
   int quantity;
-  final String svgString;
+   String svgString;
 
   CartItem({
     required this.product,

@@ -6,7 +6,7 @@ part 'product_model.g.dart';
 enum ProductType { all, electronics, clothing, books, parfum }
 
 @freezed
-class Product with _$Product {
+ class Product with _$Product {
   const factory Product({
     required int id,
     required String title,

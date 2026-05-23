@@ -4,10 +4,11 @@ import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 import '../../core/widget/ptoduct_cart.dart';
-import '../../view_modele/controller/controler.dart';
+import '../../view_modele/controller/favorite_controller.dart';
+import '../../view_modele/controller/product_controller.dart';
 
 class FavoriteProductsScreen extends StatelessWidget {
-  final ProductController controller = Get.find<ProductController>();
+  final FavoriteController controller = Get.find<FavoriteController>();
 
   FavoriteProductsScreen({super.key});
 
@@ -20,7 +21,7 @@ class FavoriteProductsScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Obx(() {
-            final favorites = controller.products
+            final favorites = controller.allProducts
                 .where((p) => p.isFavorite)
                 .toList();
 
@@ -28,7 +29,7 @@ class FavoriteProductsScreen extends StatelessWidget {
               return const Center(child: Text("No favorites yet"));
             }
             return GridView.builder(
-              itemCount: controller.products.length,
+              itemCount: controller.filteredProducts.length,
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 200,
                 childAspectRatio: 0.7,
@@ -36,7 +37,7 @@ class FavoriteProductsScreen extends StatelessWidget {
                 crossAxisSpacing: 16,
               ),
               itemBuilder: (context, index) => ProductCard(
-                product: controller.products[index],
+                product: controller.filteredProducts[index],
                 onPress: () {},
               ),
             );

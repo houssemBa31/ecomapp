@@ -1,14 +1,13 @@
-import 'package:ecomapp/core/widget/product_item.dart';
-import 'package:ecomapp/core/widget/spacing.dart';
+import 'package:ecomapp/core/theming/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../core/widget/cartItem.dart';
-import '../../view_modele/controller/controler.dart';
+import '../../view_modele/controller/cart_controller.dart';
 
 class CartScreen extends StatefulWidget {
-  final ProductController controller = Get.find<ProductController>();
+  final CartController controller = Get.find<CartController>();
 
   CartScreen({super.key});
 
@@ -17,7 +16,7 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  final ProductController controller = Get.find<ProductController>();
+  final CartController controller = Get.find<CartController>();
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +24,10 @@ class _CartScreenState extends State<CartScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        // Dans votre AppBar
+
         title: Column(
           children: [
             const Text("Your Cart", style: TextStyle(color: Colors.black)),
-            // Utilisez Obx ici
             Obx(
               () => Text(
                 "${controller.cartProducts.length} items",
@@ -71,66 +69,92 @@ class _CartScreenState extends State<CartScreen> {
 }
 
 class CartCard extends StatelessWidget {
-  const CartCard({Key? key, required this.cart}) : super(key: key);
+  const CartCard({super.key, required this.cart});
 
   final CartItem cart;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SizedBox(
-          width: 88,
-          child: AspectRatio(
-            aspectRatio: 0.88,
-            child: Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: const Color(0xFFF5F6F9),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Image.network(cart.product.images[0]),
-            ),
-          ),
+    final CartController controller = Get.find<CartController>();
+
+    return Dismissible(
+      key: Key(cart.product.id.toString()),
+
+      direction: DismissDirection.endToStart,
+
+      onDismissed: (direction) {
+        controller.removeFromCart(cart);
+      },
+      background: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        decoration: BoxDecoration(
+          color: const Color(0xFFFFE6E6),
+          borderRadius: BorderRadius.circular(15),
         ),
-        const SizedBox(width: 20),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: const Row(
           children: [
-            Text(
-              cart.product.title,
-              style: const TextStyle(color: Colors.black, fontSize: 16),
-              maxLines: 2,
-            ),
-            const SizedBox(height: 8),
-            Obx(
-              () => Text.rich(
-                TextSpan(
-                  text: "\$${cart.product.price}",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFFFF7643),
-                  ),
-                  children: [
-                    TextSpan(
-                      text: " x${cart.quantity}",
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            Spacer(),
+            Icon(Icons.delete_outline, color: Colors.red),
           ],
         ),
-      ],
+      ),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 88,
+            child: AspectRatio(
+              aspectRatio: 0.88,
+              child: Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF5F6F9),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Image.network(cart.product.images[0]),
+              ),
+            ),
+          ),
+          const SizedBox(width: 20),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  cart.product.title,
+                  style: const TextStyle(color: Colors.black, fontSize: 16),
+                  maxLines: 2,
+                ),
+                const SizedBox(height: 8),
+                Obx(
+                  () => Text.rich(
+                    TextSpan(
+                      text: "\$${cart.product.price}",
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFFFF7643),
+                      ),
+                      children: [
+                        TextSpan(
+                          text: " x${cart.quantity}",
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
 
 class CheckoutCard extends StatelessWidget {
-  final ProductController controller = Get.find<ProductController>();
+  final CartController controller = Get.find<CartController>();
 
-  CheckoutCard({Key? key}) : super(key: key);
+  CheckoutCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -205,7 +229,7 @@ class CheckoutCard extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-                      controller.addToCart(Product as Product);
+                      controller.processCheckout();
                     },
                     style: ElevatedButton.styleFrom(
                       elevation: 0,

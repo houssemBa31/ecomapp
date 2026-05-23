@@ -1,13 +1,14 @@
+import 'package:ecomapp/view_modele/controller/home_controller.dart';
 import 'package:ecomapp/views/home/widget/title_section.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 import '../../../core/widget/ptoduct_cart.dart';
-import '../../../view_modele/controller/controler.dart';
 
 class RecentlyAddedProducts extends StatelessWidget {
-  final ProductController controller = Get.find<ProductController>();
+  final HomeController controller = Get.find<HomeController>();
 
   RecentlyAddedProducts({super.key});
 
@@ -21,23 +22,33 @@ class RecentlyAddedProducts extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: controller.products.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 16,
-              mainAxisSpacing: 20,
-              childAspectRatio: 0.7,
-            ),
-            itemBuilder: (context, index) {
-              return ProductCard(
-                product: controller.products[index],
-                onPress: () {},
+          child: Obx(() {
+            if (controller.recentlyAddedProducts.isEmpty) {
+              return const Center(
+                child: Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: CircularProgressIndicator(color: Color(0xFFFF7643)),
+                ),
               );
-            },
-          ),
+            }
+            return GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: controller.recentlyAddedProducts.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 20,
+                childAspectRatio: 0.7,
+              ),
+              itemBuilder: (context, index) {
+                return ProductCard(
+                  product: controller.recentlyAddedProducts[index],
+                  onPress: () {},
+                );
+              },
+            );
+          }),
         ),
       ],
     );

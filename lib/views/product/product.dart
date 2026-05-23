@@ -4,9 +4,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 import '../../core/widget/product_item.dart';
-import '../../view_modele/controller/controler.dart';
+import '../../view_modele/controller/product_controller.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   ProductDetailsScreen({super.key});
@@ -106,7 +107,7 @@ class ProductDetailsScreen extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(16)),
                 ),
               ),
-              onPressed: () => controller.addToCart(product as prefix0.Product),
+              onPressed: () => controller.addToCart(product),
 
               child: const Text("Add To Cart"),
             ),
@@ -146,7 +147,7 @@ class TopRoundedContainer extends StatelessWidget {
 }
 
 class ProductImages extends StatefulWidget {
-  const ProductImages({Key? key, required this.product}) : super(key: key);
+  const ProductImages({super.key, required this.product});
 
   final Product product;
 
@@ -207,29 +208,47 @@ class SmallProductImage extends StatefulWidget {
   State<SmallProductImage> createState() => _SmallProductImageState();
 }
 
+
+
 class _SmallProductImageState extends State<SmallProductImage> {
+  final ProductController controller = Get.find<ProductController>();
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: widget.press,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 250),
-        margin: const EdgeInsets.only(right: 16),
-        padding: const EdgeInsets.all(8),
-        height: 48,
-        width: 48,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            color: const Color(
-              0xFFFF7643,
-            ).withOpacity(widget.isSelected ? 1 : 0),
+    return Obx(() {
+      final bool isCurrentSelected = controller.currentImageUrl.value == widget.image;
+
+      return GestureDetector(
+        onTap: () {
+          controller.changeProductImageAndColor(
+            imageUrl: widget.image,
+            colorName: "Nom_Optionnel_Depuis_API",
+          );
+
+          widget.press();
+        },
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 250),
+          margin: const EdgeInsets.only(right: 16),
+          padding: const EdgeInsets.all(8),
+          height: 48,
+          width: 48,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+              color: const Color(0xFFFF7643).withOpacity(isCurrentSelected ? 1 : 0),
+              width: 1.5,
+            ),
+          ),
+          child: Image.network(
+            widget.image,
+            fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) => const Icon(Icons.broken_image, size: 20),
           ),
         ),
-        child: Image.network(widget.image),
-      ),
-    );
+      );
+    });
   }
 }
 
@@ -318,33 +337,37 @@ class ProductDescription extends StatelessWidget {
 
 class ColorDots extends StatelessWidget {
   const ColorDots({Key? key, required this.product}) : super(key: key);
-
   final Product product;
 
   @override
   Widget build(BuildContext context) {
-    // Now this is fixed and only for demo
-    int selectedColor = 3;
+    final controller = Get.find<ProductController>();
+    int selectedColor = 0;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Row(
-        children: [
-          ...List.generate(
-            product.colors.length,
-            (index) => ColorDot(
-              color: product.colors[index],
-              isSelected: index == selectedColor,
+      child: Obx(() {
+        return Row(
+          children: [
+            ...List.generate(
+              product.colors.length,
+              (index) => ColorDot(
+                color: product.colors[index],
+                isSelected: index == selectedColor,
+              ),
             ),
-          ),
-          const Spacer(),
-          RoundedIconBtn(icon: Icons.remove, press: () {}),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Text("1", style: Theme.of(context).textTheme.titleMedium),
-          ),
-          RoundedIconBtn(icon: Icons.add, showShadow: true, press: () {}),
-        ],
-      ),
+            const Spacer(),
+            RoundedIconBtn(icon: Icons.remove, press: () {}),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Text(
+                "${controller.selectedColor.value}",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+            ),
+            RoundedIconBtn(icon: Icons.add, showShadow: true, press: () {}),
+          ],
+        );
+      }),
     );
   }
 }
