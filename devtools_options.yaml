@@ -1,3 +1,82 @@
-description: This file stores settings for Dart & Flutter DevTools.
-documentation: https://docs.flutter.dev/tools/devtools/extensions#configure-extension-enablement-states
-extensions:
+# 🛒 Ecomapp - Flutter E-Commerce Application
+
+Ecomapp est une application mobile d'e-commerce moderne, performante et scalable développée avec Flutter. L'architecture a été pensée pour découpler proprement la logique métier, la gestion d'état et la couche réseau.
+
+## 🚀 Stack Technique & Outils
+
+L'application s'appuie sur les packages les plus robustes de l'écosystème Flutter :
+
+* **Gestion d'état & Navigation** : [GetX](https://pub.dev) (Architecture réactive, injection de dépendances facilitée et routage nommé sans contexte).
+* **Couche Réseau (API)** : [Retrofit](https://pub.dev) (Génération de code de type safe pour les requêtes HTTP, basé sur Dio).
+* **Modèles de Données** : [Freezed](https://pub.dev) (Data classes immuables, sérialisation JSON sécurisée et union types).
+* **Persistance Locale** : [GetStorage](https://pub.dev_storage) (Stockage local rapide pour la session utilisateur et le cache).
+
+---
+
+## 📐 Architecture du Projet
+
+Le projet suit une structure orientée **Features (Fonctionnalités)** combinée aux principes de la Clean Architecture pour maximiser la maintenabilité.
+
+```text
+lib/
+├── core/                  # Configurations globales et partagées
+│   ├── network/           # Client Dio, intercepteurs, gestion des erreurs
+│   ├── theme/             # Thèmes clair/sombre, couleurs et polices
+│   └── utils/             # Constantes, extensions et helpers
+│
+├── features/              # Fonctionnalités de l'application
+│   ├── auth/              # Authentification (Connexion, Inscription)
+│   ├── home/              # Écran d'accueil, bannières et catégories
+│   ├── products/          # Catalogue, filtres et détails produits
+│   └── cart/              # Gestion du panier et tunnel de commande
+│       ├── data/          # Client Retrofit (Data Sources) & Modèles Freezed
+│       ├── controllers/   # GetxController (Gestion de l'état logique)
+│       └── presentation/  # Écrans et composants UI
+│
+└── main.dart              # Point d'entrée de l'application
+```
+
+---
+
+## 🛠️ Installation et Démarrage
+
+Suivez ces étapes pour exécuter le projet localement.
+
+### Prérequis
+* Flutter SDK (Version stable la plus récente)
+* Dart SDK
+
+### Étape 1 : Cloner le projet
+```bash
+git clone https://github.com
+cd ecomapp
+```
+
+### Étape 2 : Installer les dépendances
+```bash
+flutter pub get
+```
+
+### Étape 3 : Générer le code (Freezed & Retrofit)
+Ce projet utilise la génération de code pour les modèles et l'API. Lancez la commande suivante pour générer les fichiers manquants :
+```bash
+flutter pub run build_runner build --delete-conflicting-outputs
+```
+
+### Étape 4 : Lancer l'application
+```bash
+flutter run
+```
+
+---
+
+## 📋 Fonctionnalités Clés
+* [ ] Authentification sécurisée (JWT Token via GetStorage)
+* [ ] Parcours des produits par catégories et recherche filtrée
+* [ ] Gestion du panier en temps réel avec GetX
+* [ ] Passage de commande et intégration de la passerelle de paiement
+* [ ] Gestion native du mode Sombre / Clair
+
+---
+💡 *Développé avec passion par [houssemBa31](https://github.com).*
+
