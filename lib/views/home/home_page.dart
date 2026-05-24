@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+
+import '../../core/theming/color.dart';
+import '../../core/theming/spacing.dart';
 import '../../view_modele/controller/home_controller.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -24,14 +27,14 @@ class HomeScreen extends StatelessWidget {
               HomeHeader(),
               const DiscountBanner(),
               CategoryWidget(),
-              const SizedBox(height: 20),
+              verticalSpace(20),
               Obx(
                 () => controller.isLoading.value
                     ? const Center(child: CircularProgressIndicator())
                     : Column(
                         children: [
                           PopularProducts(),
-                          const SizedBox(height: 20),
+                          verticalSpace(20),
                           RecentlyAddedProducts(),
                         ],
                       ),
@@ -54,6 +57,8 @@ class CategoryWidget extends StatelessWidget {
     'Parfum',
   ];
 
+  CategoryWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -74,11 +79,11 @@ class CategoryWidget extends StatelessWidget {
                     controller.filterItemsByCategory(index);
                   }
                 },
-                selectedColor: const Color(0xFFFF7643),
+                selectedColor: AppColors.orange,
                 labelStyle: TextStyle(
                   color: controller.selectedCategoryIndex.value == index
-                      ? Colors.white
-                      : Colors.black,
+                      ? AppColors.white
+                      : AppColors.black,
                 ),
               ),
             ),
@@ -90,7 +95,7 @@ class CategoryWidget extends StatelessWidget {
 }
 
 class DiscountBanner extends StatelessWidget {
-  const DiscountBanner({Key? key}) : super(key: key);
+  const DiscountBanner({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -99,17 +104,17 @@ class DiscountBanner extends StatelessWidget {
       margin: const EdgeInsets.all(20),
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
       decoration: BoxDecoration(
-        color: const Color(0xFF4A3298),
+        color: AppColors.blue,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: const Text.rich(
+      child: Text.rich(
         TextSpan(
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: AppColors.white),
           children: [
-            TextSpan(text: "A Summer Surpise\n"),
+            const TextSpan(text: "A Summer Surpise\n"),
             TextSpan(
               text: "Cashback 20%",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.labelLarge?.copyWith(),
             ),
           ],
         ),

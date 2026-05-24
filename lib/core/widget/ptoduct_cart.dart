@@ -3,15 +3,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../core/widget/product_item.dart';
 import '../../views/home/home_page.dart';
+import '../theming/color.dart';
+import '../theming/spacing.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
-    Key? key,
+    super.key,
     this.width = 140,
     this.aspectRetio = 1.02,
     required this.product,
     required this.onPress,
-  }) : super(key: key);
+  });
 
   final double width, aspectRetio;
   final Product product;
@@ -31,13 +33,13 @@ class ProductCard extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF979797).withOpacity(0.1),
+                  color: AppColors.grey2.withValues( 0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Image.network(product.images[0]),
               ),
             ),
-            const SizedBox(height: 8),
+            verticalSpace(8),
             Text(
               product.title,
               style: Theme.of(context).textTheme.bodyMedium,
@@ -48,11 +50,9 @@ class ProductCard extends StatelessWidget {
               children: [
                 Text(
                   "\$${product.price}",
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFFFF7643),
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: Theme.of(context).colorScheme.secondary,
+                ),
                 ),
                 InkWell(
                   borderRadius: BorderRadius.circular(50),
@@ -63,16 +63,16 @@ class ProductCard extends StatelessWidget {
                     width: 24,
                     decoration: BoxDecoration(
                       color: product.isFavorite
-                          ? const Color(0xFFFF7643).withValues(alpha: 0.15)
-                          : const Color(0xFF979797).withValues(alpha: 0.1),
+                          ? AppColors.orange.withValues( 0.15)
+                          : AppColors.grey2.withValues( 0.1),
                       shape: BoxShape.circle,
                     ),
                     child: SvgPicture.string(
                       heartIcon,
                       colorFilter: ColorFilter.mode(
                         product.isFavorite
-                            ? const Color(0xFFFF4848)
-                            : const Color(0xFFDBDEE4),
+                            ? AppColors.lightRed
+                            : AppColors.withe2,
                         BlendMode.srcIn,
                       ),
                     ),

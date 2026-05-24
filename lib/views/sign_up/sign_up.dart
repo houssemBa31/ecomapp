@@ -4,6 +4,8 @@ import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
+import '../../core/theming/color.dart';
+import '../../core/theming/spacing.dart';
 import '../../view_modele/controller/auth_controller.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -14,13 +16,10 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: const Text(
-          "Sign up",
-          style: TextStyle(color: Color(0xFF757575)),
-        ),
+        backgroundColor: AppColors.white,
+        title: const Text("Sign up", style: TextStyle(color: AppColors.grey)),
       ),
       body: SafeArea(
         child: SizedBox(
@@ -30,22 +29,20 @@ class SignUpScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  const SizedBox(height: 16),
-                  const Text(
+                  verticalSpace(16),
+                  Text(
                     "Complete Profile",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+                    style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  verticalSpace(8),
                   const Text(
-                    "Complete your details or continue \your account",
+                    "Complete your details or continue your account",
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Color(0xFF757575)),
+                    style: TextStyle(color: AppColors.grey),
                   ),
-                  // const SizedBox(height: 16),
+                  verticalSpace(16),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                   const ComplateProfileForm(),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.1),
@@ -53,7 +50,7 @@ class SignUpScreen extends StatelessWidget {
                   const Text(
                     "By continuing your confirm that you agree \nwith our Term and Condition",
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Color(0xFF757575)),
+                    style: TextStyle(color: AppColors.grey),
                   ),
                 ],
               ),
@@ -66,7 +63,7 @@ class SignUpScreen extends StatelessWidget {
 }
 
 const authOutlineInputBorder = OutlineInputBorder(
-  borderSide: BorderSide(color: Color(0xFF757575)),
+  borderSide: BorderSide(color: AppColors.grey),
   borderRadius: BorderRadius.all(Radius.circular(100)),
 );
 
@@ -76,10 +73,10 @@ class ComplateProfileForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AuthController controller = Get.find<AuthController>();
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
 
     return Form(
-      key: _formKey,
+      key: formKey,
       child: Column(
         children: [
           // First Name
@@ -95,7 +92,7 @@ class ComplateProfileForm extends StatelessWidget {
               border: authOutlineInputBorder,
             ),
           ),
-          const SizedBox(height: 20),
+          verticalSpace(20),
 
           // Last Name
           TextFormField(
@@ -110,7 +107,7 @@ class ComplateProfileForm extends StatelessWidget {
               border: authOutlineInputBorder,
             ),
           ),
-          const SizedBox(height: 20),
+          verticalSpace(20),
 
           // Email (Utilisé pour Supabase SignUp)
           TextFormField(
@@ -126,7 +123,7 @@ class ComplateProfileForm extends StatelessWidget {
               border: authOutlineInputBorder,
             ),
           ),
-          const SizedBox(height: 20),
+          verticalSpace(20),
 
           // Password
           Obx(
@@ -149,7 +146,7 @@ class ComplateProfileForm extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 30),
+          verticalSpace(20),
 
           // Bouton Continue avec OBX
           Obx(
@@ -158,17 +155,19 @@ class ComplateProfileForm extends StatelessWidget {
                   ? null
                   : () => controller.signUp(),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFFF7643),
+                backgroundColor: AppColors.orange,
                 minimumSize: const Size(double.infinity, 56),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
               child: controller.isLoading.value
-                  ? const CircularProgressIndicator(color: Colors.white)
-                  : const Text(
+                  ? const CircularProgressIndicator(color: AppColors.white)
+                  : Text(
                       "Continue",
-                      style: TextStyle(color: Colors.white, fontSize: 16),
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
                     ),
             ),
           ),

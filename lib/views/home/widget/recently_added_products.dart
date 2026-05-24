@@ -5,6 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
+import '../../../core/theming/color.dart';
 import '../../../core/widget/ptoduct_cart.dart';
 
 class RecentlyAddedProducts extends StatelessWidget {
@@ -27,7 +28,7 @@ class RecentlyAddedProducts extends StatelessWidget {
               return const Center(
                 child: Padding(
                   padding: EdgeInsets.all(20.0),
-                  child: CircularProgressIndicator(color: Color(0xFFFF7643)),
+                  child: CircularProgressIndicator(color: AppColors.orange),
                 ),
               );
             }

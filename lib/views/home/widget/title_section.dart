@@ -13,10 +13,8 @@ class SectionTitle extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-            color: Colors.black,
+          style: Theme.of(context).textTheme.displayLarge?.copyWith(
+            color: Theme.of(context).colorScheme.secondary,
           ),
         ),
         TextButton(

@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 
+import '../../../core/theming/color.dart';
+
 class SearchField extends StatelessWidget {
   final HomeController searchController = Get.put(HomeController());
-   SearchField({Key? key}) : super(key: key);
+
+  SearchField({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +17,8 @@ class SearchField extends StatelessWidget {
         onChanged: (value) => searchController.filterSearch(value),
         decoration: InputDecoration(
           filled: true,
-          hintStyle: const TextStyle(color: Color(0xFF757575)),
-          fillColor: const Color(0xFF979797).withOpacity(0.1),
+          hintStyle: const TextStyle(color: AppColors.grey),
+          fillColor: AppColors.grey2.withAlpha(0.1 as int),
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 16,
             vertical: 8,

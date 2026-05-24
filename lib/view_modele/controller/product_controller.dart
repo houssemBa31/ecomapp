@@ -6,6 +6,7 @@ import 'package:get/get_navigation/src/snackbar/snackbar.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
+import '../../core/theming/color.dart';
 import '../../core/widget/cartItem.dart';
 import '../../core/widget/product_item.dart';
 import '../../services/api/api_sevices.dart';
@@ -59,7 +60,7 @@ class ProductController extends GetxController {
     filteredProducts.refresh();
   }
 
-  getAllItems() {
+  void getAllItems() {
     filteredProducts.assignAll(allProducts);
   }
 
@@ -83,7 +84,7 @@ class ProductController extends GetxController {
         message,
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.redAccent,
-        colorText: Colors.white,
+        colorText: AppColors.white,
       );
     } finally {
       isLoading.value = false;

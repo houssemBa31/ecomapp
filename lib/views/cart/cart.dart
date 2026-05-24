@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
+import '../../core/theming/color.dart';
 import '../../core/widget/cartItem.dart';
 import '../../view_modele/controller/cart_controller.dart';
 
@@ -21,13 +22,13 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.white,
 
         title: Column(
           children: [
-            const Text("Your Cart", style: TextStyle(color: Colors.black)),
+            const Text("Your Cart", style: TextStyle(color: AppColors.black)),
             Obx(
               () => Text(
                 "${controller.cartProducts.length} items",
@@ -50,7 +51,7 @@ class _CartScreenState extends State<CartScreen> {
                 background: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFFFE6E6),
+                    color: AppColors.withe2,
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Row(
@@ -88,13 +89,13 @@ class CartCard extends StatelessWidget {
       background: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         decoration: BoxDecoration(
-          color: const Color(0xFFFFE6E6),
+          color: AppColors.withe2,
           borderRadius: BorderRadius.circular(15),
         ),
         child: const Row(
           children: [
             Spacer(),
-            Icon(Icons.delete_outline, color: Colors.red),
+            Icon(Icons.delete_outline, color: AppColors.red),
           ],
         ),
       ),
@@ -107,29 +108,29 @@ class CartCard extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF5F6F9),
+                  color: AppColors.lightWithe,
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: Image.network(cart.product.images[0]),
               ),
             ),
           ),
-          const SizedBox(width: 20),
+          verticalSpace(20),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   cart.product.title,
-                  style: const TextStyle(color: Colors.black, fontSize: 16),
+                  style: const TextStyle(color: AppColors.black, fontSize: 16),
                   maxLines: 2,
                 ),
-                const SizedBox(height: 8),
+                verticalSpace(8),
                 Obx(
                   () => Text.rich(
                     TextSpan(
                       text: "\$${cart.product.price}",
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontWeight: FontWeight.w600,
                         color: Color(0xFFFF7643),
                       ),
@@ -162,7 +163,7 @@ class CheckoutCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
       // height: 174,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),
@@ -171,7 +172,7 @@ class CheckoutCard extends StatelessWidget {
           BoxShadow(
             offset: const Offset(0, -15),
             blurRadius: 20,
-            color: const Color(0xFFDADADA).withOpacity(0.15),
+            color: const Color(0xFFDADADA).withValues(0.15),
           ),
         ],
       ),
@@ -187,7 +188,7 @@ class CheckoutCard extends StatelessWidget {
                   height: 40,
                   width: 40,
                   decoration: BoxDecoration(
-                    color: const Color(0xFFF5F6F9),
+                    color: AppColors.lightWithe,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: SvgPicture.string(receiptIcon),
@@ -198,7 +199,7 @@ class CheckoutCard extends StatelessWidget {
                 const Icon(
                   Icons.arrow_forward_ios,
                   size: 12,
-                  color: Colors.black,
+                  color: AppColors.black,
                 ),
               ],
             ),
@@ -215,10 +216,12 @@ class CheckoutCard extends StatelessWidget {
                           TextSpan(
                             text: "\$${controller.totalPrice}",
                             // .value si c'est un RxDouble
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: Colors.black,
-                            ),
+                            style: Theme.of(context).textTheme.labelLarge
+                                ?.copyWith(
+                                  color: Theme.of(
+                                    context,
+                                  ).colorScheme.secondary,
+                                ),
                           ),
                         ],
                       ),
@@ -233,8 +236,8 @@ class CheckoutCard extends StatelessWidget {
                     },
                     style: ElevatedButton.styleFrom(
                       elevation: 0,
-                      backgroundColor: const Color(0xFFFF7643),
-                      foregroundColor: Colors.white,
+                      backgroundColor: AppColors.orange,
+                      foregroundColor: AppColors.white,
                       minimumSize: const Size(double.infinity, 48),
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(16)),

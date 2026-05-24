@@ -3,9 +3,9 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
+import '../../core/theming/color.dart';
 import '../../core/widget/ptoduct_cart.dart';
 import '../../view_modele/controller/favorite_controller.dart';
-import '../../view_modele/controller/product_controller.dart';
 
 class FavoriteProductsScreen extends StatelessWidget {
   final FavoriteController controller = Get.find<FavoriteController>();
@@ -15,7 +15,7 @@ class FavoriteProductsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       appBar: AppBar(title: const Text("Favorite")),
       body: SafeArea(
         child: Padding(

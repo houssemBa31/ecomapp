@@ -1,3 +1,5 @@
+import 'package:ecomapp/views/sign_In/widget/no_account.dart';
+import 'package:ecomapp/views/sign_In/widget/sign_in_form.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
@@ -5,6 +7,8 @@ import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
+import '../../core/theming/color.dart';
+import '../../core/theming/spacing.dart';
 import '../../view_modele/controller/auth_controller.dart';
 import '../sign_up/sign_up.dart';
 
@@ -22,7 +26,7 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.white,
         body: SafeArea(
           child: SizedBox(
             width: double.infinity,
@@ -31,22 +35,20 @@ class _SignInScreenState extends State<SignInScreen> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    const SizedBox(height: 16),
-                    const Text(
+                    verticalSpace(16),
+                    Text(
                       "Welcome Back",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
+                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.secondary,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    verticalSpace(8),
                     const Text(
                       "Sign in with your email and password  \nor continue with social media",
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Color(0xFF757575)),
+                      style: TextStyle(color: AppColors.grey),
                     ),
-                    // const SizedBox(height: 16),
+                    verticalSpace(16),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                     SignInForm(),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.2),
@@ -58,7 +60,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 16),
+                    verticalSpace(16),
                     const NoAccountText(),
                   ],
                 ),
@@ -72,125 +74,15 @@ class _SignInScreenState extends State<SignInScreen> {
 }
 
 const authOutlineInputBorder = OutlineInputBorder(
-  borderSide: BorderSide(color: Color(0xFF757575)),
+  borderSide: BorderSide(color: AppColors.grey),
   borderRadius: BorderRadius.all(Radius.circular(100)),
 );
 
-class SignInForm extends StatelessWidget {
-  SignInForm({super.key});
 
-  final AuthController controller = Get.find<AuthController>();
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // Champ Email
-        TextFormField(
-          onChanged: (value) => controller.email.value = value,
-          decoration: const InputDecoration(
-            labelText: "Email",
-            suffixIcon: Icon(Icons.email_outlined),
-            border: authOutlineInputBorder,
-          ),
-        ),
-        const SizedBox(height: 20),
 
-        // Champ Password avec OBX
-        Obx(
-          () => TextFormField(
-            obscureText: controller.isPasswordHidden.value,
-            onChanged: (value) => controller.password.value = value,
-            decoration: InputDecoration(
-              labelText: "Password",
-              suffixIcon: IconButton(
-                icon: Icon(
-                  controller.isPasswordHidden.value
-                      ? Icons.visibility_off_outlined
-                      : Icons.visibility_outlined,
-                ),
-                onPressed: () => controller.isPasswordHidden.toggle(),
-              ),
-              border: authOutlineInputBorder,
-            ),
-          ),
-        ),
 
-        const SizedBox(height: 30),
 
-        // Bouton Continue avec OBX pour le loader
-        Obx(
-          () => ElevatedButton(
-            onPressed: controller.isLoading.value
-                ? null
-                : () => controller.signIn(),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFFFF7643),
-              minimumSize: const Size(double.infinity, 56),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
-            child: controller.isLoading.value
-                ? const CircularProgressIndicator(color: Colors.white)
-                : const Text("Continue", style: TextStyle(color: Colors.white)),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class SocalCard extends StatelessWidget {
-  const SocalCard({Key? key, required this.icon, required this.press})
-    : super(key: key);
-
-  final Widget icon;
-  final VoidCallback press;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: press,
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        height: 56,
-        width: 56,
-        decoration: const BoxDecoration(
-          color: Color(0xFFF5F6F9),
-          shape: BoxShape.circle,
-        ),
-        child: icon,
-      ),
-    );
-  }
-}
-
-class NoAccountText extends StatelessWidget {
-  const NoAccountText({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Text(
-          "Don’t have an account? ",
-          style: TextStyle(color: Color(0xFF757575)),
-        ),
-        GestureDetector(
-          onTap: () {
-            Get.to(SignUpScreen());
-          },
-          child: const Text(
-            "Sign Up",
-            style: TextStyle(color: Color(0xFFFF7643)),
-          ),
-        ),
-      ],
-    );
-  }
-}
 
 // Icons
 const mailIcon =
