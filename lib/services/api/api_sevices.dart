@@ -3,7 +3,7 @@ import 'package:retrofit/retrofit.dart';
 
 import 'product_model.dart';
 
-part "api_service.g.dart";
+part 'api_service.g.dart';
 
 @RestApi(baseUrl: "https://votre-base-url-supab")
 abstract class ApiService {
@@ -17,10 +17,9 @@ abstract class ApiService {
 
   @GET("/products")
   Future<List<Product>> getProductsByCategory(
-    @Query("type") String categoryType,
-  );
+      @Query("type") String categoryType,
+      );
 
-  // --- CREATE PRODUCT (Optionnel) ---
   @POST("/products")
   Future<Product> createProduct(@Body() Product product);
 }

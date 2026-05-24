@@ -33,7 +33,7 @@ class ProductCard extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: AppColors.grey2.withValues( 0.1),
+                  color: AppColors.grey2.withValues(alpha:  0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Image.network(product.images[0]),
@@ -63,8 +63,8 @@ class ProductCard extends StatelessWidget {
                     width: 24,
                     decoration: BoxDecoration(
                       color: product.isFavorite
-                          ? AppColors.orange.withValues( 0.15)
-                          : AppColors.grey2.withValues( 0.1),
+                          ? AppColors.orange.withValues(alpha:  0.15)
+                          : AppColors.grey2.withValues( alpha: 0.1),
                       shape: BoxShape.circle,
                     ),
                     child: SvgPicture.string(

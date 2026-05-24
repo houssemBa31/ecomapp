@@ -28,7 +28,7 @@ class IconBtnWithCounter extends StatelessWidget {
             height: 46,
             width: 46,
             decoration: BoxDecoration(
-              color: AppColors.grey2.withValues(0.5),
+              color: AppColors.grey2.withValues(alpha: 0.5),
               shape: BoxShape.circle,
             ),
             child: SvgPicture.string(svgSrc),
