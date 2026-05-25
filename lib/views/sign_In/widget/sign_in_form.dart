@@ -32,7 +32,7 @@ class SignInForm extends StatelessWidget {
 
         // Champ Password avec OBX
         Obx(
-              () => TextFormField(
+          () => TextFormField(
             obscureText: controller.isPasswordHidden.value,
             onChanged: (value) => controller.password.value = value,
             decoration: InputDecoration(
