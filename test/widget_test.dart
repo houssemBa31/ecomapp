@@ -4,7 +4,6 @@ import 'package:ecomapp/view_modele/controller/favorite_controller.dart';
 import 'package:ecomapp/view_modele/controller/home_controller.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
-// import 'package:ecomapp/controller/cart_controller.dart'; // Décommentez si besoin plus tard
 
 void main() {
   // Nettoie la mémoire de GetX avant chaque test
