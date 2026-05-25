@@ -51,7 +51,7 @@ class _CartScreenState extends State<CartScreen> {
                 background: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   decoration: BoxDecoration(
-                    color: AppColors.withe2,
+                    color: AppColors.White2,
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Row(
@@ -89,7 +89,7 @@ class CartCard extends StatelessWidget {
       background: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         decoration: BoxDecoration(
-          color: AppColors.withe2,
+          color: AppColors.White2,
           borderRadius: BorderRadius.circular(15),
         ),
         child: const Row(

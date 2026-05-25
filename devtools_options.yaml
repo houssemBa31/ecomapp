@@ -1,15 +1,15 @@
 # 🛒 Ecomapp - Flutter E-Commerce Application
 
-Ecomapp est une application mobile d'e-commerce moderne, performante et scalable développée avec Flutter. L'architecture a été pensée pour découpler proprement la logique métier, la gestion d'état et la couche réseau.
+  Ecomapp est une application mobile d'e-commerce moderne, performante et scalable développée avec Flutter. L'architecture a été pensée pour découpler proprement la logique métier, la gestion d'état et la couche réseau.
 
 ## 🚀 Stack Technique & Outils
 
-L'application s'appuie sur les packages les plus robustes de l'écosystème Flutter :
+                  L'application s'appuie sur les packages les plus robustes de l'écosystème Flutter:
 
-* **Gestion d'état & Navigation** : [GetX](https://pub.dev) (Architecture réactive, injection de dépendances facilitée et routage nommé sans contexte).
-* **Couche Réseau (API)** : [Retrofit](https://pub.dev) (Génération de code de type safe pour les requêtes HTTP, basé sur Dio).
-* **Modèles de Données** : [Freezed](https://pub.dev) (Data classes immuables, sérialisation JSON sécurisée et union types).
-* **Persistance Locale** : [GetStorage](https://pub.dev_storage) (Stockage local rapide pour la session utilisateur et le cache).
+  * **Gestion     d'état & Navigation**: [ GetX ](https://pub.dev) (Architecture réactive, injection de dépendances facilitée et routage nommé sans contexte).
+  * **Couche      Réseau (API)**: [ Retrofit ](https://pub.dev) (Génération de code de type safe pour les requêtes HTTP, basé sur Dio).
+  * **Modèles     de Données**: [ Freezed ](https://pub.dev) (Data classes immuables, sérialisation JSON sécurisée et union types).
+  * **Persistance Locale**: [ GetStorage ](https://pub.dev_storage) (Stockage local rapide pour la session utilisateur et le cache).
 
 ---
 
@@ -40,42 +40,42 @@ lib/
 
 ## 🛠️ Installation et Démarrage
 
-Suivez ces étapes pour exécuter le projet localement.
-
-### Prérequis
-* Flutter SDK (Version stable la plus récente)
-* Dart SDK
-
-### Étape 1 : Cloner le projet
-```bash
-git clone https://github.com
-cd ecomapp
-```
-
-### Étape 2 : Installer les dépendances
-```bash
-flutter pub get
-```
+  Suivez ces étapes pour exécuter le projet localement.
+  
+  ### Prérequis
+  * Flutter SDK (Version stable la plus récente)
+  * Dart SDK
+  
+  ### Étape 1 : Cloner le projet
+  ```bash
+  git clone https://github.com
+  cd ecomapp
+  ```
+  
+  ### Étape 2 : Installer les dépendances
+  ```bash
+  flutter pub get
+  ```
 
 ### Étape 3 : Générer le code (Freezed & Retrofit)
-Ce projet utilise la génération de code pour les modèles et l'API. Lancez la commande suivante pour générer les fichiers manquants :
-```bash
-flutter pub run build_runner build --delete-conflicting-outputs
-```
-
-### Étape 4 : Lancer l'application
-```bash
-flutter run
-```
+Ce projet utilise la génération de code pour les modèles et l'API. Lancez la commande suivante pour générer les fichiers manquants:
+  ```bash
+  flutter pub run build_runner build --delete-conflicting-outputs
+  ```
+  
+  ### Étape 4 : Lancer l'application
+  ```bash
+  flutter run
+  ```
 
 ---
 
 ## 📋 Fonctionnalités Clés
-* [ ] Authentification sécurisée (JWT Token via GetStorage)
-* [ ] Parcours des produits par catégories et recherche filtrée
-* [ ] Gestion du panier en temps réel avec GetX
-* [ ] Passage de commande et intégration de la passerelle de paiement
-* [ ] Gestion native du mode Sombre / Clair
+  * [ ] Authentification sécurisée (JWT Token via GetStorage)
+  * [ ] Parcours des produits par catégories et recherche filtrée
+  * [ ] Gestion du panier en temps réel avec GetX
+  * [ ] Passage de commande et intégration de la passerelle de paiement
+  * [ ] Gestion native du mode Sombre / Clair
 
 ---
 💡 *Développé avec passion par [houssemBa31](https://github.com).*

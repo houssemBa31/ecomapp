@@ -10,6 +10,7 @@ class CartController extends GetxController {
   List<Product> allProducts = [];
   var products = <Product>[].obs;
   RxDouble totalPrice = 0.0.obs;
+
   bool get isEmptyCart => cartProducts.isEmpty;
 
   void removeFromCart(CartItem item) {

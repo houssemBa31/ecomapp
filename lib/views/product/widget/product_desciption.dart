@@ -40,7 +40,7 @@ class ProductDescription extends StatelessWidget {
               width: 48,
               decoration: BoxDecoration(
                 color: product.isFavorite
-                    ? AppColors.withe2
+                    ? AppColors.White2
                     : AppColors.lightWhite,
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(20),
@@ -50,7 +50,7 @@ class ProductDescription extends StatelessWidget {
               child: SvgPicture.string(
                 heartIcon,
                 colorFilter: ColorFilter.mode(
-                  product.isFavorite ? AppColors.lightRed : AppColors.withe2,
+                  product.isFavorite ? AppColors.lightRed : AppColors.White2,
                   BlendMode.srcIn,
                 ),
                 height: 16,
