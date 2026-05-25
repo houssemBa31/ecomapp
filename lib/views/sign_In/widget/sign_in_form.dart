@@ -31,6 +31,7 @@ class SignInForm extends StatelessWidget {
         verticalSpace(20),
 
         // Champ Password avec OBX
+        // Line 34-51: Fix spacing
         Obx(
           () => TextFormField(
             obscureText: controller.isPasswordHidden.value,
@@ -47,6 +48,28 @@ class SignInForm extends StatelessWidget {
               ),
               border: authOutlineInputBorder,
             ),
+          ),
+        ),
+
+        // Line 56-75: Fix spacing
+        Obx(
+          () => ElevatedButton(
+            onPressed: controller.isLoading.value
+                ? null
+                : () => controller.signIn(),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.orange,
+              minimumSize: const Size(double.infinity, 56),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            child: controller.isLoading.value
+                ? const CircularProgressIndicator(color: AppColors.white)
+                : const Text(
+                    "Continue",
+                    style: TextStyle(color: AppColors.white),
+                  ),
           ),
         ),
 

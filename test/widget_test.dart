@@ -20,8 +20,7 @@ void main() {
     // Get.put(CartController()); // Ajoutez ici les autres si l'erreur se déplace encore
 
     // 3. Initialise le composant dans l'environnement de test
-    await tester.pumpWidget(MyApp());
-    // 4. Déclenche le rendu initial
+    await tester.pumpWidget(MyApp()); // 4. Déclenche le rendu initial
     await tester.pump();
 
     // 5. Consomme les exceptions GetX internes pour valider proprement le test
