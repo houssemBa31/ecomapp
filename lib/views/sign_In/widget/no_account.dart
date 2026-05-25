@@ -14,12 +14,12 @@ class NoAccountText extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Text(
-          "Don’t have an account? ",
+          "Don't have an account? ",
           style: TextStyle(color: AppColors.grey),
         ),
         GestureDetector(
           onTap: () {
-            Get.to(SignUpScreen());
+            Get.to<void>(const SignUpScreen());
           },
           child: const Text(
             "Sign Up",
