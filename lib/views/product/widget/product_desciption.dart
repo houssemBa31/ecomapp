@@ -41,7 +41,7 @@ class ProductDescription extends StatelessWidget {
               decoration: BoxDecoration(
                 color: product.isFavorite
                     ? AppColors.withe2
-                    : AppColors.lightWithe,
+                    : AppColors.lightWhite,
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(20),
                   bottomLeft: Radius.circular(20),

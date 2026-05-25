@@ -108,7 +108,7 @@ class CartCard extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: AppColors.lightWithe,
+                  color: AppColors.lightWhite,
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: Image.network(cart.product.images[0]),
@@ -188,7 +188,7 @@ class CheckoutCard extends StatelessWidget {
                   height: 40,
                   width: 40,
                   decoration: BoxDecoration(
-                    color: AppColors.lightWithe,
+                    color: AppColors.lightWhite,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: SvgPicture.string(receiptIcon),

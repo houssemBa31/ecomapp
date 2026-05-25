@@ -23,7 +23,7 @@ class ProductDetailsScreen extends StatelessWidget {
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
-      backgroundColor: AppColors.lightWithe,
+      backgroundColor: AppColors.lightWhite,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,

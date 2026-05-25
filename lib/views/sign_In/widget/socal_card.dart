@@ -17,7 +17,7 @@ class SocalCard extends StatelessWidget {
         height: 56,
         width: 56,
         decoration: const BoxDecoration(
-          color: AppColors.lightWithe,
+          color: AppColors.lightWhite,
           shape: BoxShape.circle,
         ),
         child: icon,

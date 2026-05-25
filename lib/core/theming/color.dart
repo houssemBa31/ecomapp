@@ -2,7 +2,7 @@ import 'dart:ui';
 
 class AppColors {
   static const orange = Color(0xFFFF7643);
-  static const lightWithe = Color(0xFFF5F6F9);
+  static const lightWhite = Color(0xFFF5F6F9);
   static const lightBorder = Color(0xFFE5E7EB);
   static const grey2 = Color(0xFF979797);
   static const grey = Color(0xFF757575);

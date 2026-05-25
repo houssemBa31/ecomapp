@@ -5,12 +5,12 @@ import 'color.dart';
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
-    scaffoldBackgroundColor: AppColors.lightWithe,
+    scaffoldBackgroundColor: AppColors.lightWhite,
 
     colorScheme: ColorScheme.light(
       primary: AppColors.orange,
       secondary: AppColors.black,
-      surface: AppColors.lightWithe,
+      surface: AppColors.lightWhite,
     ),
 
     appBarTheme: AppBarTheme(
