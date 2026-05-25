@@ -13,7 +13,7 @@ class ProductDescription extends StatelessWidget {
   final ProductController controller = Get.find<ProductController>();
 
   ProductDescription({Key? key, required this.product, this.pressOnSeeMore})
-      : super(key: key);
+    : super(key: key);
 
   final Product product;
   final GestureTapCallback? pressOnSeeMore;

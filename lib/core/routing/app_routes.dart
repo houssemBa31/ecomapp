@@ -1,4 +1,3 @@
-
 abstract class AppRoutes {
   static const HomeScreen = '/home';
   static const FavoriteProductsScreen = '/favorite';

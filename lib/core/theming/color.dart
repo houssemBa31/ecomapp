@@ -13,6 +13,4 @@ class AppColors {
   static const black = Color(0xFF000000);
   static const blue = Color(0xFF4A3298);
   static const withe2 = Color(0xFFFFE6E6);
-
-
 }

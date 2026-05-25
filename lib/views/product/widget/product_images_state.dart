@@ -2,6 +2,7 @@ import 'package:ecomapp/views/product/widget/small_product_images-state.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/widget/product_item.dart';
+
 class ProductImages extends StatefulWidget {
   const ProductImages({super.key, required this.product});
 
@@ -31,7 +32,7 @@ class _ProductImagesState extends State<ProductImages> {
           children: [
             ...List.generate(
               widget.product.images.length,
-                  (index) => SmallProductImage(
+              (index) => SmallProductImage(
                 isSelected: index == selectedImage,
                 press: () {
                   setState(() {

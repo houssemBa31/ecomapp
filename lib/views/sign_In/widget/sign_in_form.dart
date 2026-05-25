@@ -32,7 +32,7 @@ class SignInForm extends StatelessWidget {
 
         // Champ Password avec OBX
         Obx(
-              () => TextFormField(
+          () => TextFormField(
             obscureText: controller.isPasswordHidden.value,
             onChanged: (value) => controller.password.value = value,
             decoration: InputDecoration(
@@ -54,7 +54,7 @@ class SignInForm extends StatelessWidget {
 
         // Bouton Continue avec OBX pour le loader
         Obx(
-              () => ElevatedButton(
+          () => ElevatedButton(
             onPressed: controller.isLoading.value
                 ? null
                 : () => controller.signIn(),
@@ -68,9 +68,9 @@ class SignInForm extends StatelessWidget {
             child: controller.isLoading.value
                 ? const CircularProgressIndicator(color: AppColors.white)
                 : const Text(
-              "Continue",
-              style: TextStyle(color: AppColors.white),
-            ),
+                    "Continue",
+                    style: TextStyle(color: AppColors.white),
+                  ),
           ),
         ),
       ],

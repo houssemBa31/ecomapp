@@ -11,7 +11,9 @@ void main() {
     Get.reset();
   });
 
-  testWidgets('Verification du chargement de l application', (WidgetTester tester) async {
+  testWidgets('Verification du chargement de l application', (
+    WidgetTester tester,
+  ) async {
     // 2. Injectez TOUS les contrôleurs nécessaires pour l'écran d'accueil
     Get.put(HomeController());
     Get.put(FavoriteController());

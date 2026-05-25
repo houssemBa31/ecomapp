@@ -33,7 +33,7 @@ class ProductCard extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: AppColors.grey2.withValues(alpha:  0.1),
+                  color: AppColors.grey2.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Image.network(product.images[0]),
@@ -52,7 +52,7 @@ class ProductCard extends StatelessWidget {
                   "\$${product.price}",
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: Theme.of(context).colorScheme.secondary,
-                ),
+                  ),
                 ),
                 InkWell(
                   borderRadius: BorderRadius.circular(50),
@@ -63,8 +63,8 @@ class ProductCard extends StatelessWidget {
                     width: 24,
                     decoration: BoxDecoration(
                       color: product.isFavorite
-                          ? AppColors.orange.withValues(alpha:  0.15)
-                          : AppColors.grey2.withValues( alpha: 0.1),
+                          ? AppColors.orange.withValues(alpha: 0.15)
+                          : AppColors.grey2.withValues(alpha: 0.1),
                       shape: BoxShape.circle,
                     ),
                     child: SvgPicture.string(

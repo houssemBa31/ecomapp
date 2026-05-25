@@ -16,6 +16,7 @@ class CartController extends GetxController {
     cartProducts.remove(item);
     calculateTotalPrice();
   }
+
   void increaseItemQuantity(CartItem item) {
     item.quantity++;
 
@@ -48,6 +49,7 @@ class CartController extends GetxController {
       calculateTotalPrice();
     }
   }
+
   void processCheckout() async {
     if (isEmptyCart) return;
 

@@ -119,18 +119,6 @@ class ProductDetailsScreen extends StatelessWidget {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 // Our demo Products
 
 const String description =

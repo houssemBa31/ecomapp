@@ -42,13 +42,14 @@ class _SmallProductImageState extends State<SmallProductImage> {
             widget.image,
             fit: BoxFit.cover,
             errorBuilder: (context, error, stackTrace) =>
-            const Icon(Icons.broken_image, size: 20),
+                const Icon(Icons.broken_image, size: 20),
           ),
         ),
       );
     });
   }
 }
+
 class SmallProductImage extends StatefulWidget {
   const SmallProductImage({
     super.key,

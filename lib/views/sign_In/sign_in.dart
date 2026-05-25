@@ -78,12 +78,6 @@ const authOutlineInputBorder = OutlineInputBorder(
   borderRadius: BorderRadius.all(Radius.circular(100)),
 );
 
-
-
-
-
-
-
 // Icons
 const mailIcon =
     '''<svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">

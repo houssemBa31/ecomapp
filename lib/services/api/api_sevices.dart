@@ -5,7 +5,6 @@ import 'product_model.dart';
 
 part 'api_services.g.dart';
 
-
 @RestApi(baseUrl: "https://votre-b")
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
@@ -18,8 +17,8 @@ abstract class ApiService {
 
   @GET("/products")
   Future<List<Product>> getProductsByCategory(
-      @Query("type") String categoryType,
-      );
+    @Query("type") String categoryType,
+  );
 
   @POST("/products")
   Future<Product> createProduct(@Body() Product product);

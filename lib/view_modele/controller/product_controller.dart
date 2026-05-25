@@ -24,7 +24,6 @@ class ProductController extends GetxController {
   var selectedColor = "".obs;
   var currentImageUrl = "".obs;
 
-
   void addToCart(Product product) {
     CartItem item = CartItem(
       product: product,
@@ -34,8 +33,12 @@ class ProductController extends GetxController {
     );
 
     cartProducts.add(item);
+  }
 
-  }void changeProductImageAndColor({required String imageUrl, required String colorName}) {
+  void changeProductImageAndColor({
+    required String imageUrl,
+    required String colorName,
+  }) {
     currentImageUrl.value = imageUrl;
     selectedColor.value = colorName;
   }

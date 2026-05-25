@@ -28,27 +28,26 @@ class AppTheme {
     ),
   );
 
-
   //static ThemeData darkTheme = ThemeData(
-    //brightness: Brightness.dark,
-    //scaffoldBackgroundColor: AppColors.darkBackground,
+  //brightness: Brightness.dark,
+  //scaffoldBackgroundColor: AppColors.darkBackground,
 
-    //colorScheme: ColorScheme.dark(
-     // primary: AppColors.grey,
-      //secondary: AppColors.textPrimaryDark,
-      //surface: AppColors.darkBackground,),
+  //colorScheme: ColorScheme.dark(
+  // primary: AppColors.grey,
+  //secondary: AppColors.textPrimaryDark,
+  //surface: AppColors.darkBackground,),
 
-   // appBarTheme: AppBarTheme(
-     // backgroundColor: AppColors.darkBackground,
-      //elevation: 0,
-      //iconTheme: const IconThemeData(color: AppColors.white),
-    //),
+  // appBarTheme: AppBarTheme(
+  // backgroundColor: AppColors.darkBackground,
+  //elevation: 0,
+  //iconTheme: const IconThemeData(color: AppColors.white),
+  //),
 
-    //textTheme: const TextTheme(
-      //displayLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-      //titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-      //bodyMedium: TextStyle(fontSize: 16),
-      //bodySmall: TextStyle(fontSize: 14),
-    //),
+  //textTheme: const TextTheme(
+  //displayLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+  //titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+  //bodyMedium: TextStyle(fontSize: 16),
+  //bodySmall: TextStyle(fontSize: 14),
+  //),
   //);
 }
