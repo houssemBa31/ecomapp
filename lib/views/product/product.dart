@@ -7,7 +7,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
-
 import '../../core/theming/color.dart';
 import '../../core/theming/spacing.dart';
 import '../../core/widget/product_item.dart';
@@ -20,7 +19,7 @@ class ProductDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Product product = Get.arguments;
+    final Product product = Get.arguments as Product;
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,

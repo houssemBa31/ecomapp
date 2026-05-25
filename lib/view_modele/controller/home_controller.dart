@@ -13,7 +13,7 @@ class HomeController extends GetxController {
   RxList<ProductCategory> categories = <ProductCategory>[].obs;
 
   var popularProducts = <dynamic>[].obs;
-  var recentlyAddedProducts = <dynamic>[].obs;
+  final recentlyAddedProducts = <Product>[].obs;
 
   void fetchPopularProducts() {
     var popular = allProducts
