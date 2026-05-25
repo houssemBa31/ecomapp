@@ -14,13 +14,14 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5 # Mis à jour de v4 à v5
 
     - name: Setup Java
-      uses: actions/setup-java@v4
+      uses: actions/setup-java@v5 # Mis à jour de v4 à v5
       with:
         distribution: 'zulu'
         java-version: '17'
+
 
     # Version ultra-stable et recommandée par la communauté pour installer Flutter
     - name: Setup Flutter
