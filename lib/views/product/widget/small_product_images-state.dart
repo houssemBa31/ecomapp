@@ -12,9 +12,6 @@ class _SmallProductImageState extends State<SmallProductImage> {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
-      final bool isCurrentSelected =
-          controller.currentImageUrl.value == widget.image;
-
       return GestureDetector(
         onTap: () {
           controller.changeProductImageAndColor(
