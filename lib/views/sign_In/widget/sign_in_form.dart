@@ -10,12 +10,11 @@ import '../../../view_modele/controller/auth_controller.dart';
 import '../../sign_up/sign_up.dart';
 
 class SignInForm extends StatelessWidget {
-  SignInForm({super.key});
-
-  final AuthController controller = Get.find<AuthController>();
+  const SignInForm({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final AuthController controller = Get.find<AuthController>();
     return Column(
       children: [
         // Champ Email
@@ -99,3 +98,8 @@ class SignInForm extends StatelessWidget {
     );
   }
 }
+
+const authOutlineInputBorder = OutlineInputBorder(
+  borderSide: BorderSide(color: AppColors.grey),
+  borderRadius: BorderRadius.all(Radius.circular(100)),
+);
