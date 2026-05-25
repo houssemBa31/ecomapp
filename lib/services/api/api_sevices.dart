@@ -3,7 +3,8 @@ import 'package:retrofit/retrofit.dart';
 
 import 'product_model.dart';
 
-part 'api_service.g.dart';
+part 'api_services.g.dart';
+
 
 @RestApi(baseUrl: "https://votre-base-url-supab")
 abstract class ApiService {
