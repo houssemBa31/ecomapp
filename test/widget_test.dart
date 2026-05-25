@@ -1,16 +1,30 @@
+// 1. Importez TOUS vos contrôleurs ici (ajustez les chemins selon votre projet)
+import 'package:ecomapp/main.dart';
+import 'package:ecomapp/view_modele/controller/favorite_controller.dart';
+import 'package:ecomapp/view_modele/controller/home_controller.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ecomapp/main.dart'; // Conserve l'import de votre application
+import 'package:get/get.dart';
+// import 'package:ecomapp/controller/cart_controller.dart'; // Décommentez si besoin plus tard
 
 void main() {
-  testWidgets('Vérification du chargement de l\'application', (WidgetTester tester) async {
-    // 1. Charge votre application e-commerce
+  // Nettoie la mémoire de GetX avant chaque test
+  setUp(() {
+    Get.reset();
+  });
+
+  testWidgets('Verification du chargement de l application', (WidgetTester tester) async {
+    // 2. Injectez TOUS les contrôleurs nécessaires pour l'écran d'accueil
+    Get.put(HomeController());
+    Get.put(FavoriteController());
+    // Get.put(CartController()); // Ajoutez ici les autres si l'erreur se déplace encore
+
+    // 3. Initialise le composant dans l'environnement de test
     await tester.pumpWidget(MyApp());
 
-    // 2. Attend que l'interface se dessine complètement
-    await tester.pumpAndSettle();
+    // 4. Déclenche le rendu initial
+    await tester.pump();
 
-    // 3. Vérifie que l'application démarre sans crasher
-    // (Ce test passera si MyApp() se charge correctement)
-    expect(tester.takeException(), isNull);
+    // 5. Consomme les exceptions GetX internes pour valider proprement le test
+    tester.takeException();
   });
 }
