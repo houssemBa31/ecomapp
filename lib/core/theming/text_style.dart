@@ -7,16 +7,16 @@ class AppTheme {
     brightness: Brightness.light,
     scaffoldBackgroundColor: AppColors.lightWhite,
 
-    colorScheme: ColorScheme.light(
+    colorScheme: const ColorScheme.light(
       primary: AppColors.orange,
       secondary: AppColors.black,
       surface: AppColors.lightWhite,
     ),
 
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.white,
       elevation: 0,
-      iconTheme: const IconThemeData(color: AppColors.black),
+      iconTheme: IconThemeData(color: AppColors.black),
     ),
 
     textTheme: const TextTheme(

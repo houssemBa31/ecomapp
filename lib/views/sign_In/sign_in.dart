@@ -48,11 +48,11 @@ class _SignInScreenState extends State<SignInScreen> {
                     SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                     SignInForm(),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.2),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          padding: EdgeInsets.symmetric(horizontal: 16),
                         ),
                       ],
                     ),

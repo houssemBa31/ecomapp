@@ -9,7 +9,7 @@ import '../../../core/widget/product_item.dart';
 import '../../../view_modele/controller/product_controller.dart';
 
 class ColorDots extends StatelessWidget {
-  const ColorDots({Key? key, required this.product}) : super(key: key);
+  const ColorDots({super.key, required this.product});
   final Product product;
 
   @override
@@ -33,7 +33,7 @@ class ColorDots extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Text(
-                "${controller.selectedColor.value}",
+                controller.selectedColor.value,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
@@ -46,8 +46,7 @@ class ColorDots extends StatelessWidget {
 }
 
 class ColorDot extends StatelessWidget {
-  const ColorDot({Key? key, required this.color, this.isSelected = false})
-    : super(key: key);
+  const ColorDot({super.key, required this.color, this.isSelected = false});
 
   final Color color;
   final bool isSelected;

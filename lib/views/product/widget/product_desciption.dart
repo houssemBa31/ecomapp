@@ -12,8 +12,7 @@ import '../../home/home_page.dart';
 class ProductDescription extends StatelessWidget {
   final ProductController controller = Get.find<ProductController>();
 
-  ProductDescription({Key? key, required this.product, this.pressOnSeeMore})
-    : super(key: key);
+  ProductDescription({super.key, required this.product, this.pressOnSeeMore});
 
   final Product product;
   final GestureTapCallback? pressOnSeeMore;
