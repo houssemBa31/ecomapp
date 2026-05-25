@@ -50,11 +50,11 @@ class HomeScreen extends StatelessWidget {
 class CategoryWidget extends StatelessWidget {
   final HomeController controller = Get.find<HomeController>();
   final List<String> categories = [
-    'All',
-    'Electronics',
-    'Clothing',
-    'Books',
-    'Parfum',
+    'all',
+    'electronics',
+    'clothing',
+    'books',
+    'parfum',
   ];
 
   CategoryWidget({super.key});

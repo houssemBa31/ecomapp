@@ -9,7 +9,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import '../../core/theming/color.dart';
 import '../../core/widget/cartItem.dart';
 import '../../core/widget/product_item.dart';
-import '../../services/api/api_sevices.dart';
+import '../../services/api/api_services.dart';
 import '../../services/api/erreu_handler.dart';
 
 class ProductController extends GetxController {

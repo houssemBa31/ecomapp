@@ -1,6 +1,6 @@
 import 'package:flutter/animation.dart';
 
-enum ProductType { all, Electronics, Clothing, Books, Parfum }
+enum ProductType { all, electronics, clothing, books, parfum }
 
 class Product {
   final int id;
