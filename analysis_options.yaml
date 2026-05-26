@@ -9,6 +9,7 @@ analyzer:
 # Dans le fichier analysis_options.yaml
 linter:
   rules:
+
     library_private_types_in_public_api: false # Ajoutez cette ligne exacte
 
     # avoid_print: false  # Uncomment to disable the `avoid_print` rule
