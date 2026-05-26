@@ -1,5 +1,3 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:ecomapp/views/product/widget/small_product_images_state.dart';
 import 'package:flutter/material.dart';
 
@@ -11,10 +9,11 @@ class ProductImages extends StatefulWidget {
   final Product product;
 
   @override
-  _ProductImagesState createState() => _ProductImagesState();
+  State<ProductImages> createState() => ProductImagesState(); // Rendu public ici
 }
 
-class _ProductImagesState extends State<ProductImages> {
+// Changement de _ProductImagesState vers ProductImagesState pour la conformité de l'API
+class ProductImagesState extends State<ProductImages> {
   int selectedImage = 0;
 
   @override
