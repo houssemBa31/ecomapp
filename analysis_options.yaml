@@ -1,6 +1,8 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
+  errors:
+    library_private_types_in_public_api: ignore
   exclude:
     - lib/views/product/widget/product_images_state.dart
   language:
@@ -11,7 +13,7 @@ analyzer:
 # Dans le fichier analysis_options.yaml
 linter:
   rules:
-
+    prefer_const_constructors: true
     library_private_types_in_public_api: false # Ajoutez cette ligne exacte
 
     # avoid_print: false  # Uncomment to disable the `avoid_print` rule
