@@ -1,7 +1,7 @@
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
-import '../../core/widget/cartItem.dart';
+import '../../core/widget/cart_item.dart';
 import '../../core/widget/product_item.dart';
 
 class CartController extends GetxController {
@@ -57,6 +57,6 @@ class CartController extends GetxController {
     isLoading.value = true;
     isLoading.value = false;
 
-    // Exemple : Get.to(() => DeliveryPage());
+    // Exemple : Get.to<dynamic>(() => DeliveryPage());
   }
 }

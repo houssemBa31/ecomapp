@@ -10,22 +10,22 @@ import 'app_routes.dart';
 
 class AppPages {
   static final pages = [
-    GetPage(name: AppRoutes.HomeScreen, page: () => HomeScreen()),
+    GetPage<dynamic>(name: AppRoutes.homeScreen, page: () => HomeScreen()),
 
-    GetPage(
-      name: AppRoutes.FavoriteProductsScreen,
+    GetPage<dynamic>(
+      name: AppRoutes.favoriteProductsScreen,
       page: () => FavoriteProductsScreen(),
     ),
 
-    GetPage(name: AppRoutes.CartScreen, page: () => CartScreen()),
+    GetPage<dynamic>(name: AppRoutes.cartScreen, page: () => CartScreen()),
 
-    GetPage(name: AppRoutes.SignInScreen, page: () => SignInScreen()),
+    GetPage<dynamic>(name: AppRoutes.signInScreen, page: () => SignInScreen()),
 
-    GetPage(
-      name: AppRoutes.ProductDetailsScreen,
+    GetPage<dynamic>(
+      name: AppRoutes.productDetailsScreen,
       page: () => ProductDetailsScreen(),
     ),
 
-    GetPage(name: AppRoutes.SignUpScreen, page: () => SignUpScreen()),
+    GetPage<dynamic>(name: AppRoutes.signUpScreen, page: () => SignUpScreen()),
   ];
 }

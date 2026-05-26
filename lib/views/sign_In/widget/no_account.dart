@@ -19,7 +19,7 @@ class NoAccountText extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            Get.to<void>(SignUpScreen());
+            Get.to<dynamic>(SignUpScreen());
           },
           child: const Text(
             "Sign Up",

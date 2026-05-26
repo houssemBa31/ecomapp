@@ -1,8 +1,8 @@
 abstract class AppRoutes {
-  static const HomeScreen = '/home';
-  static const FavoriteProductsScreen = '/favorite';
-  static const CartScreen = '/cart';
-  static const SignInScreen = '/signin';
-  static const ProductDetailsScreen = '/product';
-  static const SignUpScreen = '/signup';
+  static const homeScreen = '/home';
+  static const favoriteProductsScreen = '/favorite';
+  static const cartScreen = '/cart';
+  static const signInScreen = '/signin';
+  static const productDetailsScreen = '/product';
+  static const signUpScreen = '/signup';
 }

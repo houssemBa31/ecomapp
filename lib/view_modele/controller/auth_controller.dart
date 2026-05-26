@@ -25,7 +25,7 @@ class AuthController extends GetxController {
       );
 
       if (res.session != null) {
-        Get.offAllNamed('/home');
+        Get.offAllNamed<dynamic>('/home');
       }
     } on AuthException catch (e) {
       Get.snackbar("Erreur", e.message, snackPosition: SnackPosition.BOTTOM);
@@ -55,11 +55,11 @@ class AuthController extends GetxController {
       );
 
       if (res.user != null) {
-        Get.defaultDialog(
+        Get.defaultDialog<dynamic>(
           title: "Succès",
           middleText:
               "Veuillez confirmer votre email pour activer votre compte.",
-          onConfirm: () => Get.offAllNamed('/login'),
+          onConfirm: () => Get.offAllNamed<dynamic>('/login'),
           textConfirm: "Aller au Login",
         );
       }
@@ -73,7 +73,7 @@ class AuthController extends GetxController {
   // --- LOGOUT ---
   Future<void> signOut() async {
     await supabase.auth.signOut();
-    Get.offAllNamed('/login');
+    Get.offAllNamed<dynamic>('/login');
   }
 
   // --- VALIDATION SIMPLE ---

@@ -51,9 +51,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16),
-                        ),
+                        Padding(padding: EdgeInsets.symmetric(horizontal: 16)),
                       ],
                     ),
                     verticalSpace(16),

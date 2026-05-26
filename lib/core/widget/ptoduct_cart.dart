@@ -72,7 +72,7 @@ class ProductCard extends StatelessWidget {
                       colorFilter: ColorFilter.mode(
                         product.isFavorite
                             ? AppColors.lightRed
-                            : AppColors.White2,
+                            : AppColors.white2,
                         BlendMode.srcIn,
                       ),
                     ),
