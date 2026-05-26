@@ -1,12 +1,10 @@
 import 'package:ecomapp/views/product/widget/small_product_images_state.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/widget/product_item.dart';
-
 class ProductImages extends StatefulWidget {
   const ProductImages({super.key, required this.product});
 
-  final Product product;
+  final dynamic product;
 
   @override
   State<ProductImages> createState() => _ProductImagesState(); // Modifié ici
