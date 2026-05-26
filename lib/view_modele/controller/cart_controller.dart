@@ -44,11 +44,7 @@ class CartController extends GetxController {
     for (var element in cartProducts) {
       totalPrice.value += element.product.price * element.quantity;
     }
-    void removeFromCart(CartItem item) {
-      cartProducts.remove(item);
-
-      calculateTotalPrice();
-    }
+    calculateTotalPrice();
   }
 
   void processCheckout() async {

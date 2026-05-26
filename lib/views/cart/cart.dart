@@ -148,7 +148,7 @@ class CartCard extends StatelessWidget {
 }
 
 class CheckoutCard extends StatelessWidget {
-  CheckoutCard({super.key});
+  const CheckoutCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -166,7 +166,7 @@ class CheckoutCard extends StatelessWidget {
           BoxShadow(
             offset: const Offset(0, -15),
             blurRadius: 20,
-            color: const Color(0xFFDADADA).withOpacity(0.15),
+            color: const Color(0xFFDADADA).withValues(alpha: 0.15),
           ),
         ],
       ),

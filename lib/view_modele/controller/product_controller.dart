@@ -15,11 +15,10 @@ import '../../services/api/erreu_handler.dart';
 class ProductController extends GetxController {
   final ApiService apiService = Get.find(); // Ton service Retrofit
   var isLoading = false.obs;
-  List<Product> allProducts = [];
+  var allProducts = <Product>[].obs;
   var products = <Product>[].obs;
-  RxInt currentIndex = 0.obs;
   RxList<CartItem> cartProducts = <CartItem>[].obs;
-  RxList<Product> filteredProducts = <Product>[].obs;
+  var filteredProducts = <Product>[].obs;
   RxDouble totalPrice = 0.0.obs;
   var selectedColor = "".obs;
   var currentImageUrl = "".obs;
@@ -49,11 +48,8 @@ class ProductController extends GetxController {
     for (var element in cartProducts) {
       totalPrice.value += element.product.price * element.quantity;
     }
-    void removeFromCart(CartItem item) {
-      cartProducts.remove(item);
 
-      calculateTotalPrice();
-    }
+    calculateTotalPrice();
   }
 
   void isFavorite(int index) {
@@ -63,12 +59,6 @@ class ProductController extends GetxController {
 
   void getAllItems() {
     filteredProducts.assignAll(allProducts);
-  }
-
-  @override
-  void onInit() {
-    fetchProducts();
-    super.onInit();
   }
 
   Future<void> fetchProducts() async {
