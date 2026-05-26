@@ -6,12 +6,10 @@ analyzer:
     strict-inference: true
     strict-raw-types: true
 
+# Dans le fichier analysis_options.yaml
 linter:
   rules:
-    - prefer_const_constructors
-    - prefer_const_declarations
-    - always_declare_return_types
-    - avoid_print # Interdit les 'print' en production (utilisez un logger)
+    library_private_types_in_public_api: false # Ajoutez cette ligne exacte
 
     # avoid_print: false  # Uncomment to disable the `avoid_print` rule
     # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule

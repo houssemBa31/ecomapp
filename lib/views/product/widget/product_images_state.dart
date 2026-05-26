@@ -9,11 +9,10 @@ class ProductImages extends StatefulWidget {
   final Product product;
 
   @override
-  State<ProductImages> createState() => ProductImagesState(); // Rendu public ici
+  State<ProductImages> createState() => _ProductImagesState(); // Modifié ici
 }
 
-// Changement de _ProductImagesState vers ProductImagesState pour la conformité de l'API
-class ProductImagesState extends State<ProductImages> {
+class _ProductImagesState extends State<ProductImages> {
   int selectedImage = 0;
 
   @override
@@ -27,6 +26,7 @@ class ProductImagesState extends State<ProductImages> {
             child: Image.network(widget.product.images[selectedImage]),
           ),
         ),
+        // SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
