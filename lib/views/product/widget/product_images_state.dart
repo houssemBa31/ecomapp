@@ -1,13 +1,17 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:ecomapp/views/product/widget/small_product_images_state.dart';
 import 'package:flutter/material.dart';
+
+import '../../../core/widget/product_item.dart';
 
 class ProductImages extends StatefulWidget {
   const ProductImages({super.key, required this.product});
 
-  final dynamic product;
+  final Product product;
 
   @override
-  State<ProductImages> createState() => _ProductImagesState(); // Modifié ici
+  _ProductImagesState createState() => _ProductImagesState();
 }
 
 class _ProductImagesState extends State<ProductImages> {
@@ -24,7 +28,6 @@ class _ProductImagesState extends State<ProductImages> {
             child: Image.network(widget.product.images[selectedImage]),
           ),
         ),
-        // SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
