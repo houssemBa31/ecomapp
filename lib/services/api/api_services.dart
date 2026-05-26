@@ -3,7 +3,7 @@ import 'package:retrofit/retrofit.dart';
 
 import 'product_model.dart';
 
-part 'api_services.g.dart';
+part "api_services.g.dart";
 
 @RestApi(baseUrl: "https://votre-b")
 abstract class ApiService {

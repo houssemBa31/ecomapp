@@ -31,7 +31,7 @@ class SmallProductImageState extends State<SmallProductImage> {
             color: AppColors.white,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: AppColors.orange.withAlpha(0.1 as int),
+              color: AppColors.orange.withValues(alpha: 0.1),
               width: 1.5,
             ),
           ),
