@@ -23,7 +23,7 @@ class HomeHeader extends StatelessWidget {
           IconBtnWithCounter(
             svgSrc: cartIcon,
             press: () {
-              Get.to(CartScreen());
+              Get.to<dynamic>(const CartScreen());
             },
           ),
           verticalSpace(8),

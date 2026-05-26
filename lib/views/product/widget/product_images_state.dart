@@ -1,4 +1,4 @@
-import 'package:ecomapp/views/product/widget/small_product_images-state.dart';
+import 'package:ecomapp/views/product/widget/small_product_images_state.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/widget/product_item.dart';
@@ -9,10 +9,10 @@ class ProductImages extends StatefulWidget {
   final Product product;
 
   @override
-  _ProductImagesState createState() => _ProductImagesState();
+  ProductImagesState createState() => ProductImagesState();
 }
 
-class _ProductImagesState extends State<ProductImages> {
+class ProductImagesState extends State<ProductImages> {
   int selectedImage = 0;
 
   @override
