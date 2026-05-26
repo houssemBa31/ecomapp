@@ -9,10 +9,11 @@ class ProductImages extends StatefulWidget {
   final Product product;
 
   @override
-  State<ProductImages> createState() => _ProductImagesState();
+  State<ProductImages> createState() => ProductImagesState(); // 1. MODIFIÉ ICI (Suppression du _)
 }
 
-class _ProductImagesState extends State<ProductImages> {
+class ProductImagesState extends State<ProductImages> {
+  // 2. MODIFIÉ ICI (Suppression du _)
   int selectedImage = 0;
 
   @override
@@ -26,7 +27,6 @@ class _ProductImagesState extends State<ProductImages> {
             child: Image.network(widget.product.images[selectedImage]),
           ),
         ),
-        // SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
