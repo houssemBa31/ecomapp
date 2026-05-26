@@ -6,7 +6,7 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import '../../../core/theming/color.dart';
 import '../../../view_modele/controller/product_controller.dart';
 
-class _SmallProductImageState extends State<SmallProductImage> {
+class SmallProductImageState extends State<SmallProductImage> {
   final ProductController controller = Get.find<ProductController>();
 
   @override
@@ -60,5 +60,5 @@ class SmallProductImage extends StatefulWidget {
   final String image;
 
   @override
-  State<SmallProductImage> createState() => _SmallProductImageState();
+  State<SmallProductImage> createState() => SmallProductImageState();
 }
