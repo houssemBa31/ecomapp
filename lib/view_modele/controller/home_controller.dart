@@ -1,8 +1,8 @@
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
-import '../../core/widget/product_category.dart';
-import '../../core/widget/product_item.dart';
+import '../../models/product_category.dart';
+import '../../models/product_item.dart';
 
 class HomeController extends GetxController {
   var isLoading = false.obs;

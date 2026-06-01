@@ -1,29 +1,42 @@
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
+import 'package:get/get_rx/src/rx_workers/rx_workers.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
-import '../../core/widget/cart_item.dart';
-import '../../core/widget/product_item.dart';
+import '../../models/cart_item.dart';
+import '../../models/product_item.dart';
 
 class CartController extends GetxController {
   var isLoading = false.obs;
   RxList<CartItem> cartProducts = <CartItem>[].obs;
   List<Product> allProducts = [];
-  var products = <Product>[].obs;
   RxDouble totalPrice = 0.0.obs;
 
   bool get isEmptyCart => cartProducts.isEmpty;
 
+  @override
+  void onInit() {
+    super.onInit();
+    ever(cartProducts, (_) {
+      calculateTotalPrice();
+      print("Le panier a changé, prix recalculé !");
+    });
+  }
+
+  void calculateTotalPrice() {
+    totalPrice.value = cartProducts.fold(
+      0,
+      (sum, item) => sum + (item.product.price * item.quantity),
+    );
+  }
+
   void removeFromCart(CartItem item) {
     cartProducts.remove(item);
-    calculateTotalPrice();
   }
 
   void increaseItemQuantity(CartItem item) {
     item.quantity++;
 
     cartProducts.refresh();
-
-    calculateTotalPrice();
   }
 
   void decreaseItemQuantity(CartItem item) {
@@ -34,17 +47,6 @@ class CartController extends GetxController {
     }
 
     cartProducts.refresh();
-
-    calculateTotalPrice();
-  }
-
-  void calculateTotalPrice() {
-    totalPrice.value = 0;
-
-    for (var element in cartProducts) {
-      totalPrice.value += element.product.price * element.quantity;
-    }
-    calculateTotalPrice();
   }
 
   void processCheckout() async {
@@ -52,7 +54,5 @@ class CartController extends GetxController {
 
     isLoading.value = true;
     isLoading.value = false;
-
-    // Exemple : Get.to<dynamic>(() => DeliveryPage());
   }
 }

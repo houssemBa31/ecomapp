@@ -5,11 +5,12 @@ import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 import '../../../core/theming/color.dart';
-import '../../../core/widget/product_item.dart';
+import '../../../models/product_item.dart';
 import '../../../view_modele/controller/product_controller.dart';
 
 class ColorDots extends StatelessWidget {
   const ColorDots({super.key, required this.product});
+
   final Product product;
 
   @override

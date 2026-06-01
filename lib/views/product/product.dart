@@ -10,7 +10,7 @@ import 'package:get/get_navigation/src/extension_navigation.dart';
 
 import '../../core/theming/color.dart';
 import '../../core/theming/spacing.dart';
-import '../../core/widget/product_item.dart';
+import '../../models/product_item.dart';
 import '../../view_modele/controller/product_controller.dart';
 
 class ProductDetailsScreen extends StatelessWidget {

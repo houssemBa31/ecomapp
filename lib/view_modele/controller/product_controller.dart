@@ -7,8 +7,8 @@ import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 import '../../core/theming/color.dart';
-import '../../core/widget/cart_item.dart';
-import '../../core/widget/product_item.dart';
+import '../../models/cart_item.dart';
+import '../../models/product_item.dart';
 import '../../services/api/api_services.dart';
 import '../../services/api/erreu_handler.dart';
 

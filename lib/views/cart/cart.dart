@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../core/theming/color.dart';
-import '../../core/widget/cart_item.dart';
+import '../../models/cart_item.dart';
 import '../../view_modele/controller/cart_controller.dart';
 
 // Icônes SVG de secours (remplacez par vos variables globales si existantes)

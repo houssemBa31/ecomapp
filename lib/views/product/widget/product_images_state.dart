@@ -1,7 +1,7 @@
 import 'package:ecomapp/views/product/widget/small_product_images_state.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/widget/product_item.dart';
+import '../../../models/product_item.dart';
 
 class ProductImages extends StatefulWidget {
   const ProductImages({super.key, required this.product});

@@ -5,7 +5,7 @@ import 'package:get/get_instance/src/extension_instance.dart';
 
 import '../../../core/theming/color.dart';
 import '../../../core/theming/spacing.dart';
-import '../../../core/widget/product_item.dart';
+import '../../../models/product_item.dart';
 import '../../../view_modele/controller/product_controller.dart';
 import '../../home/home_page.dart';
 

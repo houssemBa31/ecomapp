@@ -1,4 +1,4 @@
-import 'package:ecomapp/core/widget/product_item.dart';
+import 'package:ecomapp/models/product_item.dart';
 import 'package:flutter/material.dart' show IconData;
 
 class ProductCategory {

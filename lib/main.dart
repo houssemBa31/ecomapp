@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'core/theming/text_style.dart';
-import 'core/widget/root_page.dart';
+import 'models/root_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
