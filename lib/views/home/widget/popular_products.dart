@@ -35,7 +35,7 @@ class PopularProducts extends StatelessWidget {
             return GridView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: controller.products.length,
+              itemCount: controller.allProducts.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 16,
@@ -44,7 +44,7 @@ class PopularProducts extends StatelessWidget {
               ),
               itemBuilder: (context, index) {
                 return ProductCard(
-                  product: controller.products[index],
+                  product: controller.allProducts[index],
                   onPress: () {},
                 );
               },

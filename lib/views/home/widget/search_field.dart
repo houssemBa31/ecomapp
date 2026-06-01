@@ -6,7 +6,7 @@ import 'package:get/get_instance/src/extension_instance.dart';
 import '../../../core/theming/color.dart';
 
 class SearchField extends StatelessWidget {
-  final HomeController searchController = Get.put(HomeController());
+  final HomeController controller = Get.put(HomeController());
 
   SearchField({super.key});
 
@@ -14,7 +14,9 @@ class SearchField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       child: TextFormField(
-        onChanged: (value) => searchController.filterSearch(value),
+        onChanged: (value) {
+          controller.searchQuery.value = value;
+        },
         decoration: InputDecoration(
           filled: true,
           hintStyle: const TextStyle(color: AppColors.grey),
